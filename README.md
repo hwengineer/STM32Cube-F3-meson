@@ -1,2 +1,2 @@
 # STM32Cube-f3-meson
-STM32Cube-f3 optimized for Meson Build System
+Another STM32Cube-f3 repos. Optimized for Meson Build System
