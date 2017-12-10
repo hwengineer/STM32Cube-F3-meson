@@ -84,22 +84,8 @@ stm32cube_srcs += ['Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_ll_tim.c']
 stm32cube_srcs += ['Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_ll_usart.c']
 stm32cube_srcs += ['Drivers/STM32F3xx_HAL_Driver/Src/stm32f3xx_ll_utils.c']
 
+#=============================================================================#
 
+stm32cube_srcs = files(stm32cube_srcs)
 
-if meson.get_cross_property('stm32cube_as_static') == true
-# declare static_library
-stm32cube = static_library(
-              'STM32Cube',
-              stm32cube_srcs,
-              include_directories : [stm32cube_incdirs, incdirs],
-              c_args              : compilerArgs,
-              link_args           : linkArgs)
-
-# declare dependency (does not work properly...)
-# stm32cube_dep = declare_dependency(
-#                   include_directories : stm32cube_incdirs,
-#                   link_with          : [[stm32cube]],
-#                   link_args           : linkArgs,
-#                   version             : '1.9.0')
-
-endif
+# use the variables stm32cube_srcs and stm32cube_incdirs for the executable
